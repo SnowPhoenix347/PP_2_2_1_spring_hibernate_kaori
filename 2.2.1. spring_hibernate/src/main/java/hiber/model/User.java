@@ -6,6 +6,19 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
+   public Car getCar() {
+      return car;
+   }
+
+   public Car setCar(Car car) {
+      this.car = car;
+      return car;
+   }
+
+   @OneToOne
+   @MapsId
+   private Car car;
+
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
@@ -57,5 +70,16 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+             "car=" + car +
+             ", id=" + id +
+             ", firstName='" + firstName + '\'' +
+             ", lastName='" + lastName + '\'' +
+             ", email='" + email + '\'' +
+             '}';
    }
 }
