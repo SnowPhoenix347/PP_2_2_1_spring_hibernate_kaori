@@ -13,7 +13,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(mappedBy = "car")
     private User user;
 
     public Car() {
@@ -29,9 +29,8 @@ public class Car {
         return user;
     }
 
-    public User setUser(User user) {
+    public void setUser(User user) {
         this.user = user;
-        return user;
     }
 
     public String getModel() {
